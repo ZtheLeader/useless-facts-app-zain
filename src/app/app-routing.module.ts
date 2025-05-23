@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     redirectTo: 'random',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    path: '',
   }, {
     path: 'random-fact',
     loadChildren: () => import('./features/random-fact/random-fact.module').then(m => m.RandomFactModule)
