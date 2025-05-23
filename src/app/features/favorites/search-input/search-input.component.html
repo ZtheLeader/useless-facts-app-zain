@@ -1,1 +1,15 @@
-<p>search-input works!</p>
+<mat-form-field appearance="outline" class="w-full">
+  <mat-label>Search Favorite Facts</mat-label>
+  <input type="text" placeholder="Type to search..." aria-label="Search favorite facts" matInput
+    [formControl]="searchControl" [matAutocomplete]="auto">
+  <mat-icon matSuffix>search</mat-icon>
+
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)" [displayWith]="displayFact">
+    <mat-option *ngIf="(filteredFacts$ | async)?.length === 0 && searchControl.value" class="text-gray-500 italic">
+      No matching facts found.
+    </mat-option>
+    <mat-option *ngFor="let fact of filteredFacts$ | async" [value]="fact">
+      {{ fact.text }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
