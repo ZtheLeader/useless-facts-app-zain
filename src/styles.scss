@@ -1,7 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.scss */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Global styles for the body and html */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll from minor element overflows */
+}
+
+body {
+  // Subtle gradient background
+  background: linear-gradient(to right bottom, #e0f2f7, #e0f2f7, #c1e7f1);
+  background-attachment: fixed;
+  /* Ensures gradient covers full height */
+}
+
+/* Angular Material Typography Reset (optional, but good for consistency) */
+.mat-typography {
+  // Apply primary text color for better contrast against light background
+  color: var(--mdc-typography-headline-1-color, rgba(0, 0, 0, 0.87));
+}
+
+// You can add more global adjustments here if needed.
+// For example, override default Material padding on some elements:
+.mdc-button {
+  padding: 0 16px !important;
+  /* Example: make buttons a bit less wide */
+}
