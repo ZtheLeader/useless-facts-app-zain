@@ -8,6 +8,7 @@ import { FavoritesService } from '../../../core/services/favorites.service';
 
 @Component({
   selector: 'app-search-input',
+  standalone: false,
   templateUrl: './search-input.component.html',
   styleUrls: ['./search-input.component.scss']
 })
