@@ -14,6 +14,8 @@ import { FavoritesService } from '../../../core/services/favorites.service';
 export class FavoritesListComponent implements OnInit, OnDestroy {
   public favorites$: Observable<SavedFact[]>;
   public hasFavorites$: Observable<boolean>;
+  public selectedFactForView: SavedFact | null = null;
+
   private destroy$ = new Subject<void>();
 
   constructor(private favoritesService: FavoritesService) {
@@ -33,5 +35,17 @@ export class FavoritesListComponent implements OnInit, OnDestroy {
 
   onRemoveFavorite(factId: string): void {
     this.favoritesService.removeFavorite(factId);
+
+    if (this.selectedFactForView && this.selectedFactForView.id === factId) {
+      this.selectedFactForView = null;
+    }
+  }
+
+  onFactSelectedFromSearch(fact: SavedFact): void {
+    this.selectedFactForView = fact;
+  }
+
+  clearSelectedFactView(): void {
+    this.selectedFactForView = null;
   }
 }
