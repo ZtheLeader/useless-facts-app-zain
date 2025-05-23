@@ -1,5 +1,3 @@
-// src/app/core/models/fact.model.ts
-
 /**
  * Interface for a fact object as received from the Useless Facts API.
  */
