@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
+import { Subject } from 'rxjs';
+
 import { Fact } from '../../../core/models/fact.model';
 import { FactService } from '../../../core/services/fact.service';
 
@@ -15,6 +17,8 @@ export class RandomFactComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
   error: string | null = null;
 
+  private destroy$ = new Subject<void>();
+
   constructor(private factService: FactService) {}
 
   ngOnInit(): void {
@@ -29,6 +33,8 @@ export class RandomFactComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
     console.log('Random Fact Component Destroyed');
   }
 
