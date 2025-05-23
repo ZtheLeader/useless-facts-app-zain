@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./features/random-fact/random-fact.module').then(m => m.RandomFactModule)
   },
   {
+    path: 'favorites',
+    loadChildren: () => import('./features/favorites/favorites.module').then(m => m.FavoritesModule)
+  },
+  {
     path: '**',
     redirectTo: 'random',
   }
