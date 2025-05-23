@@ -5,7 +5,7 @@ import { catchError, finalize, map, tap } from 'rxjs/operators';
 import { Fact } from '../models/fact.model';
 
 @Injectable({
-  providedIn: 'root' // Makes FactService a singleton available throughout the app
+  providedIn: 'root'
 })
 export class FactService {
   private readonly API_URL = 'https://uselessfacts.jsph.pl/random.json';
