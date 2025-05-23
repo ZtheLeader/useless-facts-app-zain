@@ -20,5 +20,41 @@ export class FactService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Fetches a random useless fact from the API.
+   * Manages loading and error states.
+   * @returns An Observable of type Fact.
+   */
+  getRandomFact(): Observable<Fact> {
+    this._isLoading.next(true);
+    this._error.next(null);
 
+    return this.http.get<Fact>(this.API_URL).pipe(
+      map(response => {
+        return response;
+      }),
+      catchError(this.handleError),
+      finalize(() => {
+        this._isLoading.next(false);
+      })
+    );
+  }
+
+  /**
+   * Handles HTTP errors from API calls.
+   * @param error The HttpErrorResponse object.
+   * @returns An RxJS Observable that emits an error.
+   */
+  private handleError = (error: HttpErrorResponse): Observable<never> => {
+    let errorMessage = 'An unknown error occurred!';
+    if (error.error instanceof ErrorEvent) {
+      // Client-side or network error occurred.
+      errorMessage = `A client-side error occurred: ${error.error.message}`;
+    } else {
+      errorMessage = `Server error ${error.status}: ${error.message}`;
+    }
+    console.error(errorMessage);
+    this._error.next(errorMessage);
+    return throwError(() => new Error(errorMessage));
+  }
 }
