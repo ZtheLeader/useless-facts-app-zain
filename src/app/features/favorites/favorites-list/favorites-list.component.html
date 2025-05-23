@@ -1,10 +1,24 @@
 <div class="flex flex-col items-center justify-start p-4 w-full">
 
   <div class="w-full max-w-2xl mb-8">
+    <app-search-input (factSelected)="onFactSelectedFromSearch($event)"></app-search-input>
   </div>
 
-  <div class="w-full max-w-2xl mb-8">
-  </div>
+  <mat-card *ngIf="selectedFactForView" class="w-full max-w-2xl mb-8 p-6 rounded-lg shadow-lg border border-blue-200">
+    <mat-card-content class="text-center">
+      <p class="text-lg md:text-xl font-semibold text-blue-800 leading-relaxed italic">
+        Selected Fact: "{{ selectedFactForView.text }}"
+      </p>
+      <p class="text-sm text-gray-600 mt-2">Saved on: {{ selectedFactForView.savedDate | date:'medium' }}</p>
+    </mat-card-content>
+    <mat-card-actions class="flex justify-center mt-4 space-x-4">
+      <button mat-button color="primary" (click)="clearSelectedFactView()">Clear View</button>
+      <button mat-raised-button color="warn" (click)="onRemoveFavorite(selectedFactForView.id)"
+        aria-label="Remove selected fact from favorites">
+        <mat-icon>delete</mat-icon> Remove
+      </button>
+    </mat-card-actions>
+  </mat-card>
 
   <h2 class="text-2xl font-bold text-gray-800 mb-4">Your Favorite Facts</h2>
 
