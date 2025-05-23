@@ -1,5 +1,7 @@
 # Useless Facts Explorer
 
+📘 **If you'd like to know about my philosophy behind making certain decisions & experiences while developing this app, I highly encourage you to also read this [Thoughts behind Things](./THOUGHTS_BEHIND_THINGS.md) internal doc.**
+
 ## Overview
 
 Welcome to the **Useless Facts Explorer**! This is a single-page Angular application designed to help users discover, save, and manage intriguing "useless facts" fetched from a public API. It's built with modern Angular practices and a modular architecture, intended as a foundation for a larger, scalable dashboard application.
