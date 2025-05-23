@@ -1,1 +1,35 @@
-<p>random-fact works!</p>
+<div class="flex flex-col items-center justify-center min-h-[calc(100vh-100px)] p-4">
+
+  <div *ngIf="isLoading" class="flex flex-col items-center justify-center p-8">
+    <mat-spinner color="primary" diameter="50"></mat-spinner>
+    <p class="mt-4 text-lg text-gray-700">Fetching a useless fact...</p>
+  </div>
+
+  <div *ngIf="error && !isLoading"
+    class="text-center p-8 bg-red-100 border border-red-400 text-red-700 rounded-lg shadow-md max-w-xl w-full">
+    <mat-icon color="warn" class="text-4xl !w-auto !h-auto">error_outline</mat-icon>
+    <p class="mt-2 text-lg font-semibold">Error:</p>
+    <p class="text-sm">{{ error }}</p>
+    <button mat-raised-button color="accent" class="mt-4" (click)="fetchNewFact()">Try Again</button>
+  </div>
+
+  <mat-card *ngIf="currentFact && !isLoading && !error"
+    class="w-full max-w-2xl mx-auto p-6 md:p-8 rounded-lg shadow-xl border border-gray-200">
+    <mat-card-content class="text-center">
+      <p class="text-xl md:text-2xl font-medium text-gray-800 leading-relaxed italic">
+        "{{ currentFact.text }}"
+      </p>
+    </mat-card-content>
+
+    <mat-card-actions class="flex flex-col sm:flex-row justify-center mt-6 space-y-3 sm:space-y-0 sm:space-x-4">
+      <button mat-raised-button color="primary" (click)="fetchNewFact()" class="w-full sm:w-auto">
+        Get New Fact
+      </button>
+      <button mat-stroked-button [color]="isCurrentFactFavorite ? 'warn' : 'primary'" (click)="toggleFavorite()"
+        class="w-full sm:w-auto">
+        <mat-icon>{{ isCurrentFactFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+        {{ isCurrentFactFavorite ? 'Remove from Favorites' : 'Add to Favorites' }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

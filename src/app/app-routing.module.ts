@@ -7,7 +7,7 @@ const routes: Routes = [
     pathMatch: 'full',
     path: '',
   }, {
-    path: 'random-fact',
+    path: 'random',
     loadChildren: () => import('./features/random-fact/random-fact.module').then(m => m.RandomFactModule)
   },
   {

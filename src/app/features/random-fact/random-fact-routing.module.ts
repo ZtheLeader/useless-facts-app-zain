@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RandomFactComponent } from './random-fact/random-fact.component';
 
 const routes: Routes = [{
-  path: 'random',
+  path: '',
   component: RandomFactComponent
 }];
 
