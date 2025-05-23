@@ -6,6 +6,9 @@ import { FavoritesListComponent } from './favorites-list/favorites-list.componen
 import { FavoriteItemComponent } from './favorite-item/favorite-item.component';
 import { SearchInputComponent } from './search-input/search-input.component';
 
+import { MatCardModule } from '@angular/material/card';
+
+
 
 @NgModule({
   declarations: [
@@ -15,7 +18,7 @@ import { SearchInputComponent } from './search-input/search-input.component';
   ],
   imports: [
     CommonModule,
-    FavoritesRoutingModule
+
   ]
 })
 export class FavoritesModule { }
