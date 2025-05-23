@@ -42,6 +42,16 @@ export class RandomFactComponent implements OnInit, OnDestroy {
     });
 
     this.fetchNewFact();
+
+    this.favoritesService.favorites$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(favorites => {
+        if (this.currentFact && this.currentFact.id) {
+          this.isCurrentFactFavorite = favorites.some(f => f.id === this.currentFact!.id);
+        } else {
+          this.isCurrentFactFavorite = false;
+        }
+      });
   }
 
   ngOnDestroy(): void {
@@ -70,6 +80,19 @@ export class RandomFactComponent implements OnInit, OnDestroy {
           this.isCurrentFactFavorite = this.favoritesService.isFavorite(this.currentFactId);
         },
       });
+  }
+
+  toggleFavorite(): void {
+    if (!this.currentFact || !this.currentFact.id) {
+      console.warn('Cannot toggle favorite: No current fact or fact has no ID.');
+      return;
+    }
+
+    if (this.isCurrentFactFavorite) {
+      this.favoritesService.removeFavorite(this.currentFact.id);
+    } else {
+      this.favoritesService.addFavorite(this.currentFact);
+    }
   }
 
 }

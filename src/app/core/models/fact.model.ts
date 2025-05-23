@@ -2,11 +2,11 @@
  * Interface for a fact object as received from the Useless Facts API.
  */
 export interface Fact {
-  id?: string;        // The API might provide an ID, but it's optional here as we might generate one.
+  id: string;
   text: string;
-  source?: string;    // e.g., 'uselessfacts'
+  source?: string;
   source_url?: string;
-  language?: string;  // e.g., 'en'
+  language?: string;
   permalink?: string;
 }
 
@@ -15,6 +15,6 @@ export interface Fact {
  * Includes a client-side generated ID and a timestamp.
  */
 export interface SavedFact extends Fact {
-  id: string;        // Explicitly required for saved facts for unique identification.
-  savedDate: Date;   // Timestamp when the fact was added to favorites.
+  id: string;
+  savedDate: Date;
 }
