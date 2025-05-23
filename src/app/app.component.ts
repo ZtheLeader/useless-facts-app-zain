@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import { FactService } from './core/services/fact.service';
+import { Fact } from './core/models/fact.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +10,10 @@ import { Component } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'useless-facts-app-zain';
+
+  private subscriptions: Subscription = new Subscription();
+
+  constructor(private factService: FactService) { }
 }
