@@ -1,15 +1,23 @@
 <div class="flex flex-col items-center justify-start p-4 w-full">
 
-  <div class="w-full max-w-2xl mb-8">
-    <app-search-input (factSelected)="onFactSelectedFromSearch($event)"></app-search-input>
+  <div class="w-full max-w-4xl mx-auto text-center mb-10 md:mb-16">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-text-dark mb-6 tracking-tight">
+      Your Collection of Useless Facts
+    </h1>
+    <p class="text-lg md:text-xl text-text-muted mb-8 max-w-2xl mx-auto">
+      Explore and manage your saved useless facts with ease.
+    </p>
+    <div class="w-full max-w-xl mx-auto">
+      <app-search-input (factSelected)="onFactSelectedFromSearch($event)"></app-search-input>
+    </div>
   </div>
 
   <mat-card *ngIf="selectedFactForView" class="w-full max-w-2xl mb-8 p-6
            rounded-2xl shadow-xl border border-primary-200 bg-primary-50
            transform transition-all duration-300 ease-in-out hover:shadow-2xl">
     <mat-card-content class="text-center">
-      <p class="text-lg md:text-xl font-semibold text-primary-800 leading-relaxed italic"> Selected Fact: "{{
-        selectedFactForView.text }}"
+      <p class="text-lg md:text-xl font-semibold text-primary-800 leading-relaxed italic">
+        Selected Fact: "{{ selectedFactForView.text }}"
       </p>
       <p class="text-sm text-text-muted mt-2">Saved on: {{ selectedFactForView.savedDate | date:'medium' }}</p>
     </mat-card-content>
@@ -22,11 +30,21 @@
     </mat-card-actions>
   </mat-card>
 
-  <h2 class="text-2xl font-bold text-text-dark mb-4">Your Favorite Facts</h2>
-  <div *ngIf="(hasFavorites$ | async) === false" ...>...</div>
+  <h2 class="text-3xl font-bold text-text-dark mb-6">Your Favorite Facts</h2>
 
-  <div *ngIf="hasFavorites$ | async" class="w-full max-w-2xl">
-    <app-favorite-item *ngFor="let fact of favorites$ | async" [fact]="fact" (remove)="onRemoveFavorite($event)"
-      class="block mb-3"></app-favorite-item>
+  <div *ngIf="(hasFavorites$ | async) === false"
+    class="text-center p-8 bg-gray-100 border border-gray-300 text-gray-600 rounded-lg shadow-md max-w-md w-full mx-auto">
+    <mat-icon class="text-6xl text-gray-400 !w-auto !h-auto">sentiment_dissatisfied</mat-icon>
+    <p class="mt-4 text-xl font-semibold">No Favorite Facts Yet!</p>
+    <p class="mt-2 text-md">Go to the "Random Fact" page and save some facts to see them here.</p>
+    <button mat-raised-button color="primary" routerLink="/random-fact" class="mt-4 rounded-full">Go to Random Fact
+      Page</button>
+  </div>
+
+  <div *ngIf="hasFavorites$ | async"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-screen-xl">
+    <app-favorite-item *ngFor="let fact of favorites$ | async; let i = index" [fact]="fact"
+      (remove)="onRemoveFavorite($event)" class="block animate-fade-in"
+      [style.animation-delay.px]="i * 50"></app-favorite-item>
   </div>
 </div>
