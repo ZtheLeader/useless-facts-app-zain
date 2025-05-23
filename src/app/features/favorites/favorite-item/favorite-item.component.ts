@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+import { SavedFact } from '../../../core/models/fact.model';
 
 @Component({
   selector: 'app-favorite-item',
-  standalone: false,
   templateUrl: './favorite-item.component.html',
-  styleUrl: './favorite-item.component.scss'
+  styleUrls: ['./favorite-item.component.scss']
 })
 export class FavoriteItemComponent {
+  @Input() fact!: SavedFact;
+  @Output() remove = new EventEmitter<string>();
 
+  onRemove(): void {
+    if (this.fact && this.fact.id) {
+      this.remove.emit(this.fact.id);
+    }
+  }
 }
