@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, } from '@angular/core';
+
+import { FormControl } from '@angular/forms';
 
 import { FavoritesService } from '../../../core/services/favorites.service';
 
@@ -8,6 +10,6 @@ import { FavoritesService } from '../../../core/services/favorites.service';
   templateUrl: './search-input.component.html',
   styleUrl: './search-input.component.scss'
 })
-export class SearchInputComponent {
-  constructor(private favoritesService: FavoritesService) { } // Constructor is empty, but can be used for dependency injection if needed
+export class SearchInputComponent implements OnInit, OnDestroy {
+  constructor(private favoritesService: FavoritesService) { }
 }
