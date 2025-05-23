@@ -1,10 +1,13 @@
-<mat-toolbar color="primary" class="shadow-lg z-10 relative"> <span class="text-xl font-semibold">Useless Facts
-    Explorer</span>
-  <span class="flex-grow"></span> <button mat-button routerLink="/random-fact"
-    routerLinkActive="font-bold border-b-2 border-white">Random Fact</button>
-  <button mat-button routerLink="/favorites" routerLinkActive="font-bold border-b-2 border-white">Favorites</button>
+<mat-toolbar color="primary" class="shadow-xl z-10 relative px-6 py-4">
+  <span class="text-2xl font-bold tracking-wide text-text-dark">Useless Facts Explorer</span>
+  <span class="flex-grow"></span>
+
+  <button mat-button routerLink="/random-fact" routerLinkActive="font-bold border-b-2 border-text-dark opacity-100"
+    class="text-text-dark hover:opacity-80 transition-opacity duration-200 opacity-70">Random Fact</button>
+  <button mat-button routerLink="/favorites" routerLinkActive="font-bold border-b-2 border-text-dark opacity-100"
+    class="text-text-dark hover:opacity-80 transition-opacity duration-200 opacity-70 ml-4">Favorites</button>
 </mat-toolbar>
 
-<div class="px-4 py-8 bg-transparent min-h-[calc(100vh-64px)] flex flex-col items-center justify-start relative z-0">
+<div class="px-4 py-8 min-h-[calc(100vh-80px)] flex flex-col items-center justify-start relative z-0">
   <router-outlet></router-outlet>
 </div>

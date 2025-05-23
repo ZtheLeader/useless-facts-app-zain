@@ -1,35 +1,51 @@
-/* src/styles.scss */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global styles for the body and html */
 html,
 body {
   height: 100%;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
-  /* Prevent horizontal scroll from minor element overflows */
 }
 
 body {
-  // Subtle gradient background
-  background: linear-gradient(to right bottom, #e0f2f7, #e0f2f7, #c1e7f1);
+  background: linear-gradient(to bottom right, theme('colors.background-light'), theme('colors.primary.50'));
   background-attachment: fixed;
-  /* Ensures gradient covers full height */
+  background-size: cover;
+  color: theme('colors.text-dark');
 }
 
-/* Angular Material Typography Reset (optional, but good for consistency) */
-.mat-typography {
-  // Apply primary text color for better contrast against light background
-  color: var(--mdc-typography-headline-1-color, rgba(0, 0, 0, 0.87));
+:root {
+  --mdc-theme-primary: theme('colors.primary.500');
+  --mdc-theme-on-primary: #ffffff;
+  --mdc-theme-secondary: theme('colors.accent.500');
+  --mdc-theme-on-secondary: #ffffff;
+  --mdc-theme-error: theme('colors.accent.800');
+  --mdc-theme-on-error: #ffffff;
+  --mdc-theme-surface: #ffffff;
+  --mdc-theme-on-surface: theme('colors.text-dark');
+  --mdc-filled-button-container-color: theme('colors.primary.500');
+  --mdc-filled-button-label-text-color: #ffffff;
+  --mdc-outlined-button-label-text-color: theme('colors.primary.500');
+  --mdc-outlined-button-outline-color: theme('colors.primary.500');
+  --mdc-outlined-button-hover-label-text-color: theme('colors.primary.600');
+  --mdc-outlined-button-hover-outline-color: theme('colors.primary.600');
 }
 
-// You can add more global adjustments here if needed.
-// For example, override default Material padding on some elements:
-.mdc-button {
-  padding: 0 16px !important;
-  /* Example: make buttons a bit less wide */
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
 }

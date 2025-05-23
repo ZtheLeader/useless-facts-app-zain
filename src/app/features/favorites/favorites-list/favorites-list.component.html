@@ -4,31 +4,26 @@
     <app-search-input (factSelected)="onFactSelectedFromSearch($event)"></app-search-input>
   </div>
 
-  <mat-card *ngIf="selectedFactForView" class="w-full max-w-2xl mb-8 p-6 rounded-lg shadow-lg border border-blue-200">
+  <mat-card *ngIf="selectedFactForView" class="w-full max-w-2xl mb-8 p-6
+           rounded-2xl shadow-xl border border-primary-200 bg-primary-50
+           transform transition-all duration-300 ease-in-out hover:shadow-2xl">
     <mat-card-content class="text-center">
-      <p class="text-lg md:text-xl font-semibold text-blue-800 leading-relaxed italic">
-        Selected Fact: "{{ selectedFactForView.text }}"
+      <p class="text-lg md:text-xl font-semibold text-primary-800 leading-relaxed italic"> Selected Fact: "{{
+        selectedFactForView.text }}"
       </p>
-      <p class="text-sm text-gray-600 mt-2">Saved on: {{ selectedFactForView.savedDate | date:'medium' }}</p>
+      <p class="text-sm text-text-muted mt-2">Saved on: {{ selectedFactForView.savedDate | date:'medium' }}</p>
     </mat-card-content>
     <mat-card-actions class="flex justify-center mt-4 space-x-4">
-      <button mat-button color="primary" (click)="clearSelectedFactView()">Clear View</button>
+      <button mat-button color="primary" (click)="clearSelectedFactView()" class="rounded-full">Clear View</button>
       <button mat-raised-button color="warn" (click)="onRemoveFavorite(selectedFactForView.id)"
-        aria-label="Remove selected fact from favorites">
-        <mat-icon>delete</mat-icon> Remove
+        aria-label="Remove selected fact from favorites" class="rounded-full">
+        <mat-icon class="mr-2">delete</mat-icon> Remove
       </button>
     </mat-card-actions>
   </mat-card>
 
-  <h2 class="text-2xl font-bold text-gray-800 mb-4">Your Favorite Facts</h2>
-
-  <div *ngIf="(hasFavorites$ | async) === false"
-    class="text-center p-8 bg-gray-100 border border-gray-300 text-gray-600 rounded-lg shadow-md max-w-md w-full">
-    <mat-icon class="text-6xl text-gray-400 !w-auto !h-auto">sentiment_dissatisfied</mat-icon>
-    <p class="mt-4 text-xl font-semibold">No Favorite Facts Yet!</p>
-    <p class="mt-2 text-md">Go to the "Random Fact" page and save some facts to see them here.</p>
-    <button mat-raised-button color="primary" routerLink="/random-fact" class="mt-4">Go to Random Fact Page</button>
-  </div>
+  <h2 class="text-2xl font-bold text-text-dark mb-4">Your Favorite Facts</h2>
+  <div *ngIf="(hasFavorites$ | async) === false" ...>...</div>
 
   <div *ngIf="hasFavorites$ | async" class="w-full max-w-2xl">
     <app-favorite-item *ngFor="let fact of favorites$ | async" [fact]="fact" (remove)="onRemoveFavorite($event)"
