@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-random-fact',
@@ -6,6 +6,17 @@ import { Component } from '@angular/core';
   templateUrl: './random-fact.component.html',
   styleUrl: './random-fact.component.scss'
 })
-export class RandomFactComponent {
+export class RandomFactComponent implements OnInit, OnDestroy {
+  title = 'Random Fact Component';
+
+  constructor() { }
+
+  ngOnInit(): void {
+    console.log('Random Fact Component Initialized');
+  }
+
+  ngOnDestroy(): void {
+    console.log('Random Fact Component Destroyed');
+  }
 
 }
