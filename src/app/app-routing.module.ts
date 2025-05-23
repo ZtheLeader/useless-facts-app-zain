@@ -6,7 +6,7 @@ const routes: Routes = [
     redirectTo: 'random-fact',
     pathMatch: 'full'
   }, {
-    path: 'fact',
+    path: 'random-fact',
     loadChildren: () => import('./features/random-fact/random-fact.module').then(m => m.RandomFactModule)
   }
 ];
