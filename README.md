@@ -1,59 +1,50 @@
-# UselessFactsAppZain
+# Useless Facts Explorer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+## Overview
 
-## Development server
+Welcome to the **Useless Facts Explorer**! This is a single-page Angular application designed to help users discover, save, and manage intriguing "useless facts" fetched from a public API. It's built with modern Angular practices and a modular architecture, intended as a foundation for a larger, scalable dashboard application.
 
-To start a local development server, run:
+## Features (Current)
 
-```bash
-ng serve
-```
+* **Random Fact Viewer:** Fetches and displays a new random fact with the option to save it to your favorites.
+* **Favorites Section:** Allows you to view your saved facts and remove them from your collection. Favorites persist across sessions using local storage.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Technologies Used
 
-## Code scaffolding
+* **Angular 19:** The latest stable version of the Angular framework, leveraging standalone components for a streamlined development experience.
+* **Angular Material 19:** Provides high-quality, pre-built UI components for a polished and accessible user interface.
+* **Tailwind CSS 3.4.17:** A utility-first CSS framework for flexible styling, responsive layouts, and efficient UI development.
+* **RxJS:** For reactive programming and managing application state within services.
+* **TypeScript:** Ensures strong typing, enhancing code quality and maintainability.
+* **Local Storage:** For client-side data persistence of favorite facts.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Getting Started
 
-```bash
-ng generate component component-name
-```
+Follow these steps to get the application up and running on your local machine.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Prerequisites
 
-```bash
-ng generate --help
-```
+Make sure you have Node.js (v18.x or v20.x recommended) and npm installed.
 
-## Building
+### Installation
 
-To build the project run:
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/ZtheLeader/useless-facts-app-zain](https://github.com/ZtheLeader/useless-facts-app-zain) # Replace with your repo URL
+    cd useless-facts-app
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-```bash
-ng build
-```
+### Running the Application
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1.  **Start the development server:**
+    ```bash
+    ng serve -o
+    ```
+2.  Your browser will automatically open a new tab navigated to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+<i>Made with ❤️ by [Zain](https://github.com/ZtheLeader/)</i>
