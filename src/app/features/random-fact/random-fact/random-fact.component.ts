@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { Fact } from '../../../core/models/fact.model';
 import { FactService } from '../../../core/services/fact.service';
@@ -22,14 +23,18 @@ export class RandomFactComponent implements OnInit, OnDestroy {
   constructor(private factService: FactService) {}
 
   ngOnInit(): void {
-    this.factService.isLoading$.subscribe(isLoading => {
+    this.factService.isLoading$.pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(isLoading => {
       this.isLoading = isLoading;
     }
+
     );
-    this.factService.error$.subscribe(error => {
+    this.factService.error$.pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(error => {
       this.error = error;
-    }
-    );
+    });
   }
 
   ngOnDestroy(): void {
