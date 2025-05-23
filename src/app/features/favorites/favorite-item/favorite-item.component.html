@@ -4,7 +4,7 @@
       "{{ fact.text }}"
     </p>
     <p *ngIf="fact.savedDate" class="text-xs text-gray-500 mt-1">
-      Saved: {{ fact.savedDate }}
+      Saved: {{ fact.savedDate | date:'mediumDate' }}
     </p>
   </mat-card-content>
 
