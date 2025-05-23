@@ -75,7 +75,7 @@ export class RandomFactComponent implements OnInit, OnDestroy {
         next: (fact: Fact) => {
           const factWithId: Fact = { ...fact, id: fact.id || this.favoritesService['generateUniqueId']() };
           this.currentFact = factWithId;
-          this.currentFactId = factWithId.id; // Store the ID for easy favorite checking
+          this.currentFactId = factWithId.id;
 
           this.isCurrentFactFavorite = this.favoritesService.isFavorite(this.currentFactId);
         },
