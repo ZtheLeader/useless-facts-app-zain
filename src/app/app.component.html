@@ -1,13 +1,20 @@
-<mat-toolbar color="primary" class="shadow-xl z-10 relative px-6 py-4">
-  <span class="text-2xl font-bold tracking-wide text-text-dark">Useless Facts Explorer</span>
-  <span class="flex-grow"></span>
+<mat-toolbar color="primary"
+  class="shadow-xl z-10 relative px-3 sm:px-6 py-2 sm:py-4 flex flex-wrap justify-between items-center">
+  <span class="text-lg sm:text-2xl font-bold tracking-wide text-text-dark truncate max-w-[180px] sm:max-w-none">Useless
+    Facts Explorer</span>
 
-  <button mat-button routerLink="/random-fact" routerLinkActive="font-bold border-b-2 border-text-dark opacity-100"
-    class="text-text-dark hover:opacity-80 transition-opacity duration-200 opacity-70">Random Fact</button>
-  <button mat-button routerLink="/favorites" routerLinkActive="font-bold border-b-2 border-text-dark opacity-100"
-    class="text-text-dark hover:opacity-80 transition-opacity duration-200 opacity-70 ml-4">Favorites</button>
+  <div class="flex items-center space-x-2 sm:space-x-4">
+    <button mat-button routerLink="/random" routerLinkActive="font-bold border-b-2 border-text-dark opacity-100"
+      class="text-text-dark hover:opacity-80 transition-opacity duration-200 opacity-70 text-xs sm:text-base px-2 sm:px-4">
+      Random
+    </button>
+    <button mat-button routerLink="/favorites" routerLinkActive="font-bold border-b-2 border-text-dark opacity-100"
+      class="text-text-dark hover:opacity-80 transition-opacity duration-200 opacity-70 text-xs sm:text-base px-2 sm:px-4">
+      Favorites
+    </button>
+  </div>
 </mat-toolbar>
 
-<div class="px-4 py-8 min-h-[calc(100vh-80px)] flex flex-col items-center justify-start relative z-0">
+<div class="px-4 py-8 min-h-[calc(100vh-80px)] flex flex-col items-center justify-center relative z-0">
   <router-outlet></router-outlet>
 </div>
