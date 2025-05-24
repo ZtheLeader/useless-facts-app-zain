@@ -3,12 +3,13 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, finalize, map, tap } from 'rxjs/operators';
 import { Fact } from '../models/fact.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FactService {
-  private readonly API_URL = 'https://uselessfacts.jsph.pl/random.json';
+  private readonly API_URL = environment.apiUrl;
 
   // RxJS Subject to manage loading state
   private _isLoading = new BehaviorSubject<boolean>(false);
