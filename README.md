@@ -30,8 +30,7 @@ The application uses Angular's environment system, supporting local development 
 **To use `environment.local.ts`:** You can simply create this file in `src/environments/` and define your local `export const environment = { ... };` overrides within it. The build system handles the file replacement automatically during development builds.
 
 ## Getting Started
-
-Follow these steps to get the application up and running on your local machine.
+Application is currently also deployed on https://github.com/ZtheLeader/useless-facts-app-zain via Github pages. However if your'd like to set it up on your local, follow these instructions:
 
 ### Prerequisites
 
