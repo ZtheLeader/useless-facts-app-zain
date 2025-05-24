@@ -26,7 +26,9 @@ Throughout my career, I've worked on and experimented with various tech stacks. 
 
 ## 🤔 What was the most challenging part while working on it?
  ### Non-Functional Challenges:
- I have been out of the touch with Angular ecosystem for some years. I have been a React person lately. When I got this assignment, I was excited that now I have a chance to refresh my Angular concepts but coming out of React mindset and adopting Angular's way of doing things took some time.
+ 1. I have been out of the touch with Angular ecosystem for some years. I have been a React person lately. When I got this assignment, I was excited that now I have a chance to refresh my Angular concepts but coming out of React mindset and adopting Angular's way of doing things took some time.
+2. Dockerization, that I decided to do voluntarily also took a lot of time. It took it as challenge and was able to resolve it.
+3. Additionally, setting up **environment variables for local overrides** (`environment.local.ts`) exposed a subtle challenge. The `angular.json` file replacement mechanism expecting `environment.local.ts` to exist by default led to compilation errors (`path does not exist`) on fresh clones. Resolving this required adjusting `angular.json` to make `environment.local.ts` truly optional by setting up a separate `local` build configuration, ensuring `ng serve` works out-of-the-box for new developers.
 
  ### Functional Challenges: 
 Additionally, working on unit tests was quite tricky.
