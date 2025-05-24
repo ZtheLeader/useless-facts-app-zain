@@ -12,10 +12,9 @@
       </p>
     </mat-card-content>
     <mat-card-actions class="flex flex-col sm:flex-row justify-center mt-8 space-y-4 sm:space-y-0 sm:space-x-6">
-      <button mat-raised-button color="primary" (click)="fetchNewFact()"
-        class="w-full sm:w-auto py-3 px-6 text-lg rounded-full">
-        Get New Fact
-      </button>
+      <button mat-raised-button color="primary" (click)="fetchNewFact()" class="w-full sm:w-auto py-3 px-6 text-lg
+      rounded-full">
+      <mat-icon class="mr-2">refresh</mat-icon> Get New Fact </button>
       <button mat-stroked-button [color]="isCurrentFactFavorite ? 'warn' : 'primary'" (click)="toggleFavorite()"
         class="w-full sm:w-auto py-3 px-6 text-lg rounded-full">
         <mat-icon class="mr-2">{{ isCurrentFactFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
