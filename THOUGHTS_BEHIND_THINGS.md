@@ -67,11 +67,9 @@ I think it doesn't lack anything from the given requirements.
 
 
 ## ⏳ What would I add more to the application if I had more time?
-I'm a frontend guy and I wanted to make the application much more better in terms of look and feel but also user experience. I would add ARIA standard accesbility, support of dark/light theme probably more animations.
-
-Also, I'm not 100% with the way my search bar works. It does the job but I have some more ideas for it.
-
-Though I was initially satisfied with Material design, later I felt that I could have created an even better experience with [PrimeNG](https://primeng.org/)
+- I'm a frontend guy and I wanted to make the application much more better in terms of look and feel but also user experience. I would add ARIA standard accessability, support of dark/light theme probably more animations.
+- Also, I'm not 100% with the way my search bar works. It does the job but I have some more ideas for it.
+- Though I was initially satisfied with Material design, later I felt that I could have created an even better experience with [PrimeNG](https://primeng.org/)
 
 
 ## 🤖 Did I take help from ChatGPT/Gemini?
