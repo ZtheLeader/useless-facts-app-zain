@@ -1,0 +1,12 @@
+# .dockerignore
+node_modules
+npm-debug.log
+.git
+.angular
+.vscode
+dist/
+tmp/
+*.log
+.DS_Store
+.env
+src/environments/*.local.ts # Ignore local environment files
