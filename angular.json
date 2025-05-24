@@ -155,6 +155,9 @@
               "devServerTarget": "useless-facts-app-zain:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
