@@ -1,24 +1,31 @@
 # Useless Facts Explorer
 
-📘 **If you'd like to know about my philosophy behind making certain decisions & experiences while developing this app, I highly encourage you to also read this [Thoughts behind Things](./THOUGHTS_BEHIND_THINGS.md) internal doc.**
-
+📘 **If you'd like to know about my philosophy behind making certain decisions & experiences while developing this app, I highly suggest you to also read this [Thoughts behind Things](./THOUGHTS_BEHIND_THINGS.md) internal doc.**
 ## Overview
 
-Welcome to the **Useless Facts Explorer**! This is a single-page Angular application designed to help users discover, save, and manage intriguing "useless facts" fetched from a public API. It's built with modern Angular practices and a modular architecture, intended as a foundation for a larger, scalable dashboard application.
+Welcome to the **Useless Facts Explorer**! This is a single-page Angular application designed to help users discover, save, and manage intriguing "useless facts" fetched from a public API. It's built as a foundation for a larger, scalable dashboard.
 
-## Features (Current)
+## Features
 
-* **Random Fact Viewer:** Fetches and displays a new random fact with the option to save it to your favorites.
-* **Favorites Section:** Allows you to view your saved facts and remove them from your collection. Favorites persist across sessions using local storage.
+* **Random Fact Viewer:** Fetches and displays a new random fact with the option to save it to favorites.
+* **Favorites Section:** Displays all saved facts, allows removal, and includes a search with autocomplete functionality.
+* **Persistence:** All favorite facts persist across browser sessions using local storage.
+* **Search with Autocomplete:** A search input for saved facts suggests matches as the user types.
 
 ## Technologies Used
 
-* **Angular 19:** The latest stable version of the Angular framework, leveraging standalone components for a streamlined development experience.
-* **Angular Material 19:** Provides high-quality, pre-built UI components for a polished and accessible user interface.
-* **Tailwind CSS 3.4.17:** A utility-first CSS framework for flexible styling, responsive layouts, and efficient UI development.
-* **RxJS:** For reactive programming and managing application state within services.
-* **TypeScript:** Ensures strong typing, enhancing code quality and maintainability.
-* **Local Storage:** For client-side data persistence of favorite facts.
+Built with: Angular 19, Angular Material 19, Tailwind CSS 3.4.17, RxJS, and TypeScript. Data persisted using Local Storage, fetched from the Useless Facts API.
+
+
+## Environment Configuration
+
+The application uses Angular's environment system, supporting local development overrides.
+
+* `src/environments/environment.ts`: Default development settings (committed).
+* `src/environments/environment.prod.ts`: Production settings (committed).
+* `src/environments/environment.local.ts`: **Ignored by Git**, for developer-specific local overrides.
+
+**To use `environment.local.ts`:** Create this file in `src/environments/` and define your local `export const environment = { ... };` overrides within it. Angular's build system handles the file replacement automatically during development builds.
 
 ## Getting Started
 
@@ -26,19 +33,30 @@ Follow these steps to get the application up and running on your local machine.
 
 ### Prerequisites
 
-Make sure you have Node.js (v18.x or v20.x recommended) and npm installed.
+* Node.js (v18.x or v20.x recommended)
+* npm (usually comes with Node.js)
+* Angular CLI (install globally: `npm install -g @angular/cli`)
 
 ### Installation
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/ZtheLeader/useless-facts-app-zain](https://github.com/ZtheLeader/useless-facts-app-zain) # Replace with your repo URL
+    git clone [https://github.com/ztheleader/useless-facts-app.git](https://github.com/ztheleader/useless-facts-app.git) # Your GitHub repo
     cd useless-facts-app
     ```
 2.  **Install dependencies:**
     ```bash
     npm install
     ```
+3.  **(Optional) Create Local Environment Overrides:** If you need specific local development settings (e.g., a different API URL for testing), create `src/environments/environment.local.ts` and populate it:
+    ```typescript
+    // src/environments/environment.local.ts
+    export const environment = {
+      production: false,
+      apiUrl: 'YOUR_LOCAL_API_URL_HERE' // Or just leave it if defaults are fine
+    };
+    ```
+    *(This file is already in `.gitignore`)*
 
 ### Running the Application
 
@@ -46,7 +64,27 @@ Make sure you have Node.js (v18.x or v20.x recommended) and npm installed.
     ```bash
     ng serve -o
     ```
-2.  Your browser will automatically open a new tab navigated to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    Your browser will automatically open a new tab navigated to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+### Running Tests
+A comprehensive testing strategy includes extensive unit tests (Karma & Jasmine) and demonstrative end-to-end tests (Cypress).
+
+* **Unit Tests (Karma & Jasmine):**
+    ```bash
+    ng test
+    ```
+    This will open a browser and run all unit tests.
+
+* **End-to-End Tests (Cypress):**
+    1.  Ensure your Angular development server is running in a separate terminal:
+        ```bash
+        ng serve
+        ```
+    2.  In a new terminal, open the Cypress Test Runner:
+        ```bash
+        npx cypress open
+        ```
+    3.  In the Cypress UI, select "E2E Testing" and then choose the spec file (e.g., `random-fact.cy.ts`) you wish to run.
 
 
 <i>Made with ❤️ by [Zain](https://github.com/ZtheLeader/)</i>
