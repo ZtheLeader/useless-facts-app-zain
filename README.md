@@ -1,6 +1,6 @@
 # Useless Facts Explorer
 
-📘 **If you'd like to know about my philosophy behind making certain decisions & experiences while developing this app, I highly encourage you to also read this [Thoughts behind Things](./THOUGHTS_BEHIND_THINGS.md) internal doc.**
+💡 **If you'd like to know about my philosophy behind making certain decisions & experiences while developing this app, I highly encourage you to also read this [Thoughts behind Things](./THOUGHTS_BEHIND_THINGS.md) internal doc.**
 
 ## Overview
 
