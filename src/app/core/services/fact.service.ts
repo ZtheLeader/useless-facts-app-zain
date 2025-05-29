@@ -4,6 +4,7 @@ import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, finalize, map, tap } from 'rxjs/operators';
 import { Fact } from '../models/fact.model';
 import { environment } from '../../../environments/environment';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class FactService {
   private _error = new BehaviorSubject<string | null>(null);
   public readonly error$: Observable<string | null> = this._error.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private notificationService: NotificationService) { }
 
   /**
    * Fetches a random useless fact from the API.
@@ -54,7 +55,7 @@ export class FactService {
     } else {
       errorMessage = `Server error ${error.status}: ${error.message}`;
     }
-    console.error(errorMessage);
+    this.notificationService.showError(`Error: ${errorMessage}`);
     this._error.next(errorMessage);
     return throwError(() => new Error(errorMessage));
   }
