@@ -14,7 +14,13 @@ export class NotificationService {
 
   constructor(private snackBar: MatSnackBar) { }
 
-  showSuccess(message: string, duration?: number): void {
+  /**
+   * Displays a message in a snackbar.
+   * @param message The error message to display.
+   * @param duration Optional duration for the snackbar to be visible.
+   */
+
+  showMessage(message: string, duration?: number): void {
     this.notificationSubject.next({
       message,
       type: 'success'
@@ -22,33 +28,6 @@ export class NotificationService {
 
     this.openSnackBar(message, 'Close', 'success-notification', duration);
   }
-
-  showError(message: string, duration?: number): void {
-    this.notificationSubject.next({
-      message,
-      type: 'error'
-    });
-
-    this.openSnackBar(message, 'Close', 'error-notification', duration);
-  }
-
-  showWarning(message: string, duration?: number): void {
-    this.notificationSubject.next({
-      message,
-      type: 'warning'
-    });
-
-    this.openSnackBar(message, 'Close', 'warning-notification', duration);
-  }
-
-  showInfo(message: string, duration?: number): void {
-    this.notificationSubject.next({
-      message,
-      type: 'info'
-    });
-    this.openSnackBar(message, 'Close', 'info-notification', duration);
-  }
-
 
   private openSnackBar(
     message: string,

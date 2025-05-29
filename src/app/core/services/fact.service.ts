@@ -55,7 +55,7 @@ export class FactService {
     } else {
       errorMessage = `Server error ${error.status}: ${error.message}`;
     }
-    this.notificationService.showError(`Error: ${errorMessage}`);
+    this.notificationService.showMessage(`Error: ${errorMessage}`);
     this._error.next(errorMessage);
     return throwError(() => new Error(errorMessage));
   }

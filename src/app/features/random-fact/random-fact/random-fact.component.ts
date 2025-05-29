@@ -92,10 +92,10 @@ export class RandomFactComponent implements OnInit, OnDestroy {
 
     if (this.isCurrentFactFavorite) {
       this.favoritesService.removeFavorite(this.currentFact.id);
-      this.notificationService.showSuccess('Fact removed from favorites.');
+      this.notificationService.showMessage('Fact removed from favorites.');
     } else {
       this.favoritesService.addFavorite(this.currentFact);
-      this.notificationService.showSuccess('Fact added to favorites.');
+      this.notificationService.showMessage('Fact added to favorites.');
     }
   }
 
