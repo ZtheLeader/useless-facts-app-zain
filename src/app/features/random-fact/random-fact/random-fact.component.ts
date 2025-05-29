@@ -6,6 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Fact } from '../../../core/models/fact.model';
 import { FactService } from '../../../core/services/fact.service';
 import { FavoritesService } from '../../../core/services/favorites.service';
+import { NotificationService } from '../../../core/services/notification.service';
 
 @Component({
   selector: 'app-random-fact',
@@ -24,7 +25,8 @@ export class RandomFactComponent implements OnInit, OnDestroy {
   private currentFactId: string | null = null;
 
   constructor(private factService: FactService,
-    private favoritesService: FavoritesService
+    private favoritesService: FavoritesService,
+    private notificationService: NotificationService,
   ) { }
 
   ngOnInit(): void {
@@ -90,8 +92,10 @@ export class RandomFactComponent implements OnInit, OnDestroy {
 
     if (this.isCurrentFactFavorite) {
       this.favoritesService.removeFavorite(this.currentFact.id);
+      this.notificationService.showSuccess('Fact removed from favorites.');
     } else {
       this.favoritesService.addFavorite(this.currentFact);
+      this.notificationService.showSuccess('Fact added to favorites.');
     }
   }
 
